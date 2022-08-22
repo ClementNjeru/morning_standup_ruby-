@@ -1,0 +1,42 @@
+# CRUD
+
+# Creating (input)
+  movies.insert(name: "Sonic", genre: "Adventure", release: "2001", rating: 6)
+
+# retrieve the existing movies
+  movies.all
+
+# retrieve using the id
+  movies[id: 3]
+
+# retrieving the first item
+  movies.first
+
+# retrieving the last movie
+  movies.order(:id).last
+
+# retrieving using the where
+  movies.where(name:  "Iron Man")
+  movies.where(name:  "Iron Man").to_a
+
+# retrieve all movies with rating above 5
+  movies.where{rating > 5}.to_a
+
+# retrive all movies with a rating below 5
+  movies.where{rating < 5}.to_a
+
+# order by 
+  movies.order(:rating).all
+
+# reverse order 
+  movies.reverse_order(:rating).all
+
+# retrieving all records with specific columns | an example of chaining
+  movies.select(:name).all
+  movies.select(:name, :genre).all
+
+# updating
+  movies.where(name: "Black Panther").update(release: 2022)
+
+# Delete
+  movies.where(name: "Aqua Man").delete
